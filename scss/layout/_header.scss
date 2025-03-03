@@ -1,0 +1,81 @@
+.header{
+
+    height: 100vh;
+    background-image: 
+        linear-gradient(to bottom, rgba(30, 30, 30, 0.3), rgba(1, 120, 120, 0.3), rgba(245, 245, 245, 0.3)),
+        url("/assets/img/header.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 60%);
+    .nav{
+        padding: 0 1.25rem;
+        margin: auto;
+        .header-logo{
+            margin: 0;
+        }
+        .nav-item{
+            padding: 0 0 0 2.1rem;
+        }
+        .nav-link{
+            font-family: 'Roboto', sans-serif;
+            color: $light;
+            padding: 0;
+        }
+    }
+    .header-content{
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .header-slogan{
+            color: $light;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        .header-title{
+            color: $light;
+            font-size: 1.5rem;
+            margin-top: 1.25rem;
+        }
+    }
+    
+}
+
+@media screen and (min-width: 992px){
+    .header{
+        .nav{
+            padding: 0 6.25rem;
+            .nav-item{
+                padding: 0 0 0 4.3rem;
+            }
+        }
+        .header-content{
+            .header-slogan{
+                font-size: 3.1rem;
+            }
+            .header-title{
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .header{
+        .nav{
+            padding: 0 3.1rem;
+        }
+        .header-content{
+            .header-slogan{
+                font-size: 3.1rem;
+            }
+            .header-title{
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
