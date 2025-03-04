@@ -1,11 +1,12 @@
 body{
     background-color: $light;
     position: relative;
-    .btn{
+    .btn-header{
         position: absolute;
         top: 80vh;
         left: 50%;
         translate: -50% -50%;
         z-index: 1;
+        font-size: 1.25rem;
     }
 }

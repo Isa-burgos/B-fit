@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="assets/css/main.min.css">
+      <link rel="stylesheet" href="assets/css/main.min.css">
 
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+      <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
 
 
-    <title>B'Fit</title>
-</head>
-<body>
+      <title>B'Fit</title>
+  </head>
+  <body>
+
+    <!-- START HEADER -->
+
     <header class="header">
-        <nav class="navbar navbar-expand-md link-light">
-            <div class=" nav container-fluid">
-                <a class="header-logo navbar-brand" href="#">
-                    <img src="/assets/icons/logo.svg" alt="logo">
-                </a>
-              <button class="navbar-toggler border border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span>
-                  <img src="/assets/icons/menu-burger.svg" alt="Menu burger">
-                </span>
-              </button>
-              <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Accueil</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Qui suis-je?</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Mes prestations</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Témoignages</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+      <nav class="navbar navbar-expand-md link-light">
+        <div class=" nav container-fluid">
+            <a class="header-logo navbar-brand" href="#">
+                <img src="/assets/icons/logo.svg" alt="logo">
+            </a>
+          <button class="navbar-toggler border border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span>
+              <img src="/assets/icons/menu-burger.svg" alt="Menu burger">
+            </span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#quiSuisJe">Qui suis-je?</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#prestations">Mes prestations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Témoignages</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
           <div class="header-content">
             <div>
               <p class="header-slogan">Révélez votre potentiel</p>
@@ -52,10 +55,86 @@
               <h1 class="header-title">Votre coach sportif en Ardèche</h1>
             </div>
           </div>
-        </header>
-        
-        <div>
-          <a href="#contact" class="btn btn-primary">Contacter</a>
+    </header>
+
+    <div>
+      <a href="#contact" class="btn btn-header">Contacter</a>
+    </div>
+
+    <!-- END HEADER -->
+
+    <!-- START Qui suis-je? -->
+
+    <section id="quiSuisJe" class="mb-5">
+      <div class="presentation">
+        <div class="profile">
+          <div class="profile-img">
+            <img src="/assets/img/profile.jpg" alt="Coach">
+          </div>
+          <div class="profile-title">
+            <h2>Qui suis-je ?</h2>
+          </div>
         </div>
-</body>
+        <div class="profile-content">
+          <div class="profile-title">
+            <h2>Qui suis-je ?</h2>
+          </div>
+          <div class="profile-presentation">
+            <p>Corem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
+            </p>
+          </div>
+          <div class="profile-btn">
+            <button type="button" class="btn">Contactez-moi</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- END Qui suis-je? -->
+
+    <!-- START Mes prestations -->
+    
+    <section id="prestations" class="bg-primary container container-lg">
+      <h2 class="text-light">Mes prestations</h2>
+      <div class="row cards-container">
+        <div class="card-div col-sm-12 col-md-3">
+          <div class=" card bg-dark text-light">
+            <img src="assets/img/cours-collectifs.webp" class="card-img" alt="...">
+            <div class="card-img-overlay d-flex justify-content-center flex-column text-center">
+              <h3 class="text-light">Cours collectifs</h3>
+            </div>         
+          </div>
+        </div>
+        <div class="card-div col-sm-12 col-md-3">
+          <div class="card bg-dark text-light">
+            <img src="assets/img/coaching-individuel.webp" class="card-img" alt="...">
+            <div class="card-img-overlay d-flex justify-content-center flex-column text-center">
+              <h3 class="text-light">Coaching individuel ou en groupe</h3>
+            </div>         
+          </div>
+        </div>
+        <div class="card-div col-sm-12 col-md-3">
+          <div class="card bg-dark text-light">
+            <img src="assets/img/coaching-entreprise.webp" class="card-img" alt="...">
+            <div class="card-img-overlay d-flex justify-content-center flex-column text-center">
+              <h3 class="text-light">Coaching en entreprise</h3>
+            </div>         
+          </div>
+        </div>
+        <div class="card-div col-sm-12 col-md-3">
+          <div class="card bg-dark text-light">
+            <img src="assets/img/programme-a-distance.webp" class="card-img" alt="...">
+            <div class="card-img-overlay d-flex justify-content-center flex-column text-center">
+              <h3 class="text-light">Programme à distance</h3>
+            </div>         
+          </div>
+        </div>
+
+      </div>
+
+
+    </section>
+    
+    <!-- END Mes prestations -->
+  </body>
 </html>
