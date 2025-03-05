@@ -68,3 +68,22 @@
         display: none;
     }
 }
+
+#contact{
+    background-color: $secondary;
+    margin-top: 6rem;
+    padding-bottom: 2rem;
+    overflow: auto;
+    .contact-container{
+        background-color: $light;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        width: 85%;
+        border-radius: 5px;
+        filter: drop-shadow(0 0 0.5rem $dark);
+        h2{
+            text-align: center;
+            padding-bottom: 2rem;
+        }
+    }
+}
