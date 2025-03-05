@@ -30,68 +30,6 @@
     }
 }
 
-@media screen and (min-width: 992px){
-    .presentation{
-        flex-direction: row;
-        margin: 0 6.25rem;
-        .profile{
-            .profile-img{
-                img{
-                    width: 25rem;
-                    height: 25rem;
-                    margin-right: 7.8rem;
-                }
-            }
-            .profile-title{
-                display: none;
-            }
-        }
-        .profile-content{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            .profile-title, .profile-btn{
-                display: block;
-            }
-            .profile-title, .profile-presentation{
-                margin-bottom: 2.5rem;
-            }
-        }
-    }
-}
-
-@media screen and (min-width: 768px) and (max-width: 991px){
-    .presentation{
-        flex-direction: row;
-        margin: 0 3.1rem;
-        .profile{
-            .profile-img{
-                img{
-                    width: 20rem;
-                    height: 20rem;
-                    margin-right: 5rem;
-                }
-            }
-            .profile-title{
-                display: none;
-            }
-        }
-        .profile-content{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            .profile-title, .profile-btn{
-                display: block;
-            }
-            .profile-title, .profile-presentation{
-                margin-bottom: 2.5rem;
-            }
-        }
-    }
-}
-
 #prestations{
     padding-top: 1rem;
     padding-bottom: 240%;
@@ -112,26 +50,21 @@
     }
 }
 
-@media screen and (min-width: 768px){
-    #prestations{
-        padding: 2rem 0 3rem 0;
-        h2{
-            text-align: left;
-            margin-left: 1.25rem;
-            padding-left: 1rem;
+#temoignages{
+    margin: 6rem 0 1rem 0;
+    max-width: 100%;
+    h2{
+        text-align: center;
+    }
+    #small-screen-carousel{
+        display: block;
+        margin: auto;
+        width: 75%;
+        .card{
+            margin: 2rem 0.5rem;
         }
-        .cards-container{
-            position: static;
-            .card-div{
-                padding: 0 0.5rem;
-                .card{
-                    .card-img{
-                        width: 100%;
-                        aspect-ratio: 1/1;
-                        object-fit: cover;
-                    }
-                }
-            }
-        }
+    }
+    #large-screen-carousel{
+        display: none;
     }
 }

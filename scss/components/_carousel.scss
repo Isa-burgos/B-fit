@@ -1,0 +1,15 @@
+.carousel-control-prev-icon, .carousel-control-next-icon{
+    color: $primary;
+    margin: 0 1rem;
+}
+
+.carousel-indicators{
+    bottom: -5rem;
+}
+
+.carousel-indicators [data-bs-target]{
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 100%;
+    background-color: $primary;
+}

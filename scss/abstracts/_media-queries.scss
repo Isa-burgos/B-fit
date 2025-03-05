@@ -1,0 +1,173 @@
+@media screen and (min-width: 992px){
+    .presentation{
+        flex-direction: row;
+        margin: 0 6.25rem;
+        .profile{
+            .profile-img{
+                img{
+                    width: 25rem;
+                    height: 25rem;
+                    margin-right: 7.8rem;
+                }
+            }
+            .profile-title{
+                display: none;
+            }
+        }
+        .profile-content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .profile-title, .profile-btn{
+                display: block;
+            }
+            .profile-title, .profile-presentation{
+                margin-bottom: 2.5rem;
+            }
+        }
+    }
+
+    #prestations{
+        padding: 2rem 0 3rem 0;
+        h2{
+            text-align: left;
+            margin-left: 6.25rem;
+        }
+        .cards-container{
+            position: static;
+            margin: 1rem 6.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            .card-div{
+                flex: 0 0 calc((100% - 3rem) / 4);
+                padding: 0;
+                .card{
+                    .card-img{
+                        width: 100%;
+                        aspect-ratio: 1/1;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+
+    #temoignages{
+        margin: 1rem 0 1rem 0;
+        padding: 2rem 0 3rem 0;
+        max-width: 100%;
+        h2{
+            text-align: left;
+            margin-left: 6.25rem;
+        }
+        #small-screen-carousel{
+            display: none;
+        }
+        #large-screen-carousel{
+            display: block;
+            .card-wrapper{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                .card{
+                    margin: 0.5rem;
+                }
+            }
+        }
+        .carousel-control-next{
+            right: -3rem;
+        }
+        .carousel-control-prev{
+            left: -3rem;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .presentation{
+        flex-direction: row;
+        margin: 0 3.1rem;
+        .profile{
+            .profile-img{
+                img{
+                    width: 20rem;
+                    height: 20rem;
+                    margin-right: 5rem;
+                }
+            }
+            .profile-title{
+                display: none;
+            }
+        }
+        .profile-content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .profile-title, .profile-btn{
+                display: block;
+            }
+            .profile-title, .profile-presentation{
+                margin-bottom: 2.5rem;
+            }
+        }
+    }
+
+    #prestations{
+        padding: 2rem 0 3rem 0;
+        h2{
+            text-align: left;
+            margin-left: 1.25rem;
+        }
+        .cards-container{
+            position: static;
+            margin: 1rem 1.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            .card-div{
+                flex: 0 0 calc((100% - 3rem) / 4);
+                padding: 0;
+                .card{
+                    .card-img{
+                        width: 100%;
+                        aspect-ratio: 1/1;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+
+    #temoignages{
+        margin: 1rem 0 1rem 0;
+        padding: 2rem 0 3rem 0;
+        max-width: 100%;
+        h2{
+            text-align: left;
+            margin-left: 1.25rem;
+        }
+        #small-screen-carousel{
+            display: none;
+        }
+        #large-screen-carousel{
+            display: block;
+            .card-wrapper{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                .card{
+                    margin: 0.5rem;
+                }
+            }
+        }
+        .carousel-control-next{
+            right: -1.5rem;
+        }
+        .carousel-control-prev{
+            left: -1.5rem;
+        }
+    }
+}

@@ -4,9 +4,13 @@
 @import 'base/typography';
 @import 'base/body';
 
+
 @import 'pages/home';
 
 @import 'layout/header';
 
 @import 'components/button';
 @import 'components/cards';
+@import 'components/carousel';
+
+@import 'abstracts/media-queries';
