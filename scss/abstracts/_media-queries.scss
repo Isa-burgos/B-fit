@@ -93,6 +93,20 @@
             }
         }
     }
+
+    .footer{
+        .footer-container{
+            .footer-title{
+                text-align: left;
+                margin-bottom: 1rem;
+            }
+            .footer-media{
+                display: flex;
+                justify-content: end;
+                margin-top: 0;
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px){
@@ -178,6 +192,19 @@
         }
         .carousel-control-prev{
             left: -1.5rem;
+        }
+    }
+
+    .footer{
+        .footer-container{
+            .footer-title{
+                text-align: left;
+            }
+            .footer-media{
+                display: flex;
+                justify-content: end;
+                margin-top: 0;
+            }
         }
     }
 }
