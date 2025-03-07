@@ -5,7 +5,7 @@
     top: 0;
     z-index: 1000;
     background: transparent;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
     .header-logo{
         margin: 0;
         padding-top: 1rem;
@@ -24,7 +24,7 @@
     &.scrolled{
         background: rgba(245, 245, 245, 0.7);
         backdrop-filter: blur(1rem);
-        filter: drop-shadow(0 0 1rem $dark);
+        filter: drop-shadow(0 0 0.5rem $secondary);
         svg{
             path{
                 fill: $primary;
