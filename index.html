@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <link rel="stylesheet" href="assets/css/main.min.css">
+    <link rel="stylesheet" href="assets/css/main.min.css">
 
-      <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/script.js" defer></script>
 
-
-      <title>B'Fit</title>
+    <title>B'Fit</title>
   </head>
   <body>
 
     <!-- START HEADER -->
+    <nav class="navbar navbar-expand-md link-light py-0">
+      <div class=" nav container-fluid">
+          <a class="header-logo navbar-brand" href="#">
+            <svg width="55" height="33" viewBox="0 0 55 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.4086 3.42167L3.43986 3.42387L3.45212 14.4102L5.80758 14.4076C6.61618 14.4067 7.15514 14.3182 7.42448 14.1421C7.70553 13.966 7.89866 13.7607 8.00387 13.5262C8.33117 12.7876 8.49362 11.3401 8.49121 9.18386C8.48879 7.01589 8.37592 5.63906 8.15261 5.05337C7.94102 4.46767 7.65345 4.05198 7.28989 3.80629C6.92633 3.54888 6.29923 3.42067 5.4086 3.42167ZM6.28455 16.5164L3.45447 16.5196L3.4693 29.8086L6.24664 29.8055C7.10211 29.8046 7.72875 29.5226 8.12656 28.9597C8.52437 28.3967 8.75776 27.5176 8.82674 26.3222C8.89572 25.1268 8.92974 24.1072 8.9288 23.2635L8.92717 21.8045C8.92523 20.0701 8.74213 18.7578 8.37785 17.8676C8.02528 16.9656 7.32751 16.5152 6.28455 16.5164ZM0.818148 1.12406L5.33572 1.11901C7.18728 1.11695 8.52943 1.43186 9.36217 2.06374C10.2066 2.69561 10.7352 3.8083 10.9479 5.40182C11.0425 6.10484 11.0962 6.98368 11.1091 8.03836L11.1095 8.44265C11.1118 10.4466 10.9846 11.976 10.7279 13.031C10.4713 14.0859 9.93897 14.8776 9.13096 15.4058C10.0455 15.8501 10.6735 16.7283 11.0148 18.0404C11.3678 19.3408 11.5454 20.9754 11.5476 22.9441L11.5482 23.489C11.5047 26.5008 11.1204 28.6809 10.3953 30.0294C9.67027 31.3779 8.25892 32.0533 6.16126 32.0556L0.852672 32.0615L0.818148 1.12406ZM16.9017 0.70181L21.6653 0.696494L21.6691 4.08907L19.6736 11.5796L17.8103 11.5817L19.4017 4.2498L16.9056 4.25259L16.9017 0.70181ZM26.9041 1.09495L35.0252 1.08588L35.0274 3.12494L29.5079 3.1311L29.5204 14.3635L34.7411 14.3577L34.7435 16.4495L29.5228 16.4553L29.5402 32.0295L26.9386 32.0324L26.9041 1.09495ZM39.3494 1.08106L41.9685 1.07813L42.003 32.0156L39.3839 32.0185L39.3494 1.08106ZM45.783 1.07388L54.5193 1.06413L54.5216 3.10319L51.6212 3.10643L51.6534 32.0048L49.0519 32.0077L49.0196 3.10933L45.7852 3.11294L45.783 1.07388Z" fill="#F5F5F5"/>
+            </svg>
+          </a>
+        <button class="navbar-toggler border border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span>
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.33331 8C5.33331 7.64638 5.47379 7.30724 5.72384 7.05719C5.97389 6.80714 6.31302 6.66667 6.66665 6.66667H25.3333C25.6869 6.66667 26.0261 6.80714 26.2761 7.05719C26.5262 7.30724 26.6666 7.64638 26.6666 8C26.6666 8.35362 26.5262 8.69276 26.2761 8.94281C26.0261 9.19286 25.6869 9.33333 25.3333 9.33333H6.66665C6.31302 9.33333 5.97389 9.19286 5.72384 8.94281C5.47379 8.69276 5.33331 8.35362 5.33331 8ZM5.33331 16C5.33331 15.6464 5.47379 15.3072 5.72384 15.0572C5.97389 14.8071 6.31302 14.6667 6.66665 14.6667H25.3333C25.6869 14.6667 26.0261 14.8071 26.2761 15.0572C26.5262 15.3072 26.6666 15.6464 26.6666 16C26.6666 16.3536 26.5262 16.6928 26.2761 16.9428C26.0261 17.1929 25.6869 17.3333 25.3333 17.3333H6.66665C6.31302 17.3333 5.97389 17.1929 5.72384 16.9428C5.47379 16.6928 5.33331 16.3536 5.33331 16ZM6.66665 22.6667C6.31302 22.6667 5.97389 22.8071 5.72384 23.0572C5.47379 23.3072 5.33331 23.6464 5.33331 24C5.33331 24.3536 5.47379 24.6928 5.72384 24.9428C5.97389 25.1929 6.31302 25.3333 6.66665 25.3333H25.3333C25.6869 25.3333 26.0261 25.1929 26.2761 24.9428C26.5262 24.6928 26.6666 24.3536 26.6666 24C26.6666 23.6464 26.5262 23.3072 26.2761 23.0572C26.0261 22.8071 25.6869 22.6667 25.3333 22.6667H6.66665Z" fill="#F5F5F5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#quiSuisJe">Qui suis-je?</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#prestations">Mes prestations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#temoignages">Témoignages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <header class="header">
-      <nav class="navbar navbar-expand-md link-light">
-        <div class=" nav container-fluid">
-            <a class="header-logo navbar-brand" href="#">
-                <img src="/assets/icons/logo.svg" alt="logo">
-            </a>
-          <button class="navbar-toggler border border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span>
-              <img src="/assets/icons/menu-burger.svg" alt="Menu burger">
-            </span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Accueil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#quiSuisJe">Qui suis-je?</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#prestations">Mes prestations</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#temoignages">Témoignages</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
           <div class="header-content">
             <div>
               <p class="header-slogan">Révélez votre potentiel</p>

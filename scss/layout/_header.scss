@@ -1,5 +1,38 @@
+.nav{
+    padding: 0 1.25rem;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background: transparent;
+    transition: all 0.5s ease-in-out;
+    .header-logo{
+        margin: 0;
+        padding-top: 1rem;
+    }
+    .navbar-toggler{
+        padding-top: 1rem;
+    }
+    .nav-item{
+        padding: 1rem 0 0 2.1rem;
+    }
+    .nav-link{
+        font-family: 'Roboto', sans-serif;
+        color: $light;
+        padding: 1rem 0 0 0;
+    }
+    &.scrolled{
+        background: rgba(245, 245, 245, 0.7);
+        backdrop-filter: blur(1rem);
+        filter: drop-shadow(0 0 1rem $dark);
+        svg{
+            path{
+                fill: $primary;
+            }
+        }
+    }
+}
 .header{
-
     height: 100vh;
     background-image: 
         linear-gradient(to bottom, rgba(30, 30, 30, 0.3), rgba(1, 120, 120, 0.3), rgba(245, 245, 245, 0.3)),
@@ -9,21 +42,6 @@
     background-position: center;
     overflow: hidden;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 60%);
-    .nav{
-        padding: 0 1.25rem;
-        margin: auto;
-        .header-logo{
-            margin: 0;
-        }
-        .nav-item{
-            padding: 0 0 0 2.1rem;
-        }
-        .nav-link{
-            font-family: 'Roboto', sans-serif;
-            color: $light;
-            padding: 0;
-        }
-    }
     .header-content{
         height: 70%;
         display: flex;
@@ -46,13 +64,18 @@
 }
 
 @media screen and (min-width: 992px){
-    .header{
-        .nav{
-            padding: 0 6.25rem;
-            .nav-item{
-                padding: 0 0 0 4.3rem;
+    .nav{
+        padding: 0 6.25rem;
+        .nav-item{
+            padding: 0 0 0 4.3rem;
+        }
+        &.scrolled{
+            .nav-link{
+                color: $primary;
             }
         }
+    }
+    .header{
         .header-content{
             .header-slogan{
                 font-size: 3.1rem;
@@ -65,10 +88,15 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px){
-    .header{
-        .nav{
-            padding: 0 3.1rem;
+    .nav{
+        padding: 0 3.1rem 1rem;
+        &.scrolled{
+            .nav-link{
+                color: $primary;
+            }
         }
+    }
+    .header{
         .header-content{
             .header-slogan{
                 font-size: 3.1rem;
