@@ -1,0 +1,36 @@
+.nav {
+    .nav-link {
+        text-decoration: none;
+        padding: 0.5rem 0;
+        cursor: pointer;
+        background:
+            linear-gradient(90deg, transparent, $light, transparent)
+            bottom / var(--d, 0) 2px no-repeat;
+        transition: all 0.5s;
+        
+        &:hover {
+            --d: 100%;
+        }
+    }
+    &.scrolled{
+        .nav-link{
+            background:
+                linear-gradient(90deg, transparent, $primary, transparent)
+                bottom / var(--d, 0) 2px no-repeat;
+            transition: all 0.5s;
+        }
+    }
+}
+
+.link{
+    text-decoration: none;
+    padding: 0.5rem 0;
+    cursor:pointer;
+    background: 
+        linear-gradient(90deg, transparent, $primary, transparent) 
+        bottom /var(--d, 0) 2px no-repeat;
+        transition: 0.5s;
+}
+.link:hover{
+    --d: 100%;
+}

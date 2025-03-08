@@ -85,5 +85,13 @@
             text-align: center;
             padding-bottom: 2rem;
         }
+        .consentement{
+            .form-check-input{
+                border: 1px solid $primary;
+            }
+            .form-check-label{
+                text-align: justify;
+            }
+        }
     }
 }
