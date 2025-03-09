@@ -13,21 +13,34 @@
     .navbar-toggler{
         padding-top: 1rem;
     }
-    .nav-item{
-        padding: 1rem 0 0 2.1rem;
-    }
-    .nav-link{
-        font-family: 'Roboto', sans-serif;
-        color: $light;
-        padding: 1rem 0 0 0;
+    .navbar-collapse{
+        background-color: rgba(15, 19, 18, 0.5);
+        backdrop-filter: blur(1rem);
+        .nav-item{
+            padding: 1rem 0 0 2.1rem;
+            .nav-link{
+                font-family: 'Roboto', sans-serif;
+                color: $light;
+                padding: 1rem 0 0 0;
+            }
+        }
     }
     &.scrolled{
         background: rgba(245, 245, 245, 0.7);
-        backdrop-filter: blur(1rem);
+        backdrop-filter: blur(0.8rem);
         filter: drop-shadow(0 0 0.5rem $secondary);
         svg{
             path{
                 fill: $primary;
+            }
+        }
+        .navbar-collapse{
+            background: transparent;
+            backdrop-filter: none;
+            .nav-item{
+                .nav-link{
+                    color: $primary;
+                }
             }
         }
     }
@@ -36,6 +49,10 @@
 @media screen and (min-width: 992px){
     .nav{
         padding: 0 6.25rem;
+        .navbar-collapse{
+            background-color: transparent;
+            backdrop-filter: none;
+        }
         .nav-item{
             padding: 0 0 0 4.3rem;
         }
@@ -50,6 +67,10 @@
 @media screen and (min-width: 768px) and (max-width: 991px){
     .nav{
         padding: 0 3.1rem 1rem;
+        .navbar-collapse{
+            background-color: transparent;
+            backdrop-filter: none;
+        }
         &.scrolled{
             .nav-link{
                 color: $primary;
