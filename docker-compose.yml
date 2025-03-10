@@ -1,0 +1,25 @@
+services:
+  php:
+    image: php:8.3.17-apache
+    container_name: php
+    ports:
+      - 8089:80
+    volumes:
+      - ./php:/var/www/html
+      - ./js:/var/www/html/js
+      - ./assets:/var/www/html/assets
+      - ./scss:/var/www/html/scss
+      - ./node_modules:/var/www/html/node_modules
+      - ./vendor:/var/www/html/vendor
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - maildev
+
+  maildev:
+    image: maildev/maildev
+    container_name: maildev
+    ports:
+      - "1025:1025"
+      - "1080:1080"

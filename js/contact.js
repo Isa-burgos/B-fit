@@ -76,7 +76,3 @@ function validateEmail(input){
         return false;
     }
 }
-
-// if(validateForm()){
-//     messageSuccess.style.display = "block";
-// }

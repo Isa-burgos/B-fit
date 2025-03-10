@@ -1,3 +1,38 @@
+<?php
+
+require 'vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $mail = new PHPMailer(true);
+
+  try {
+
+    $mail->isSMTP();
+    $mail->Host = 'maildev';
+    $mail->Port = 1025;
+    $mail->SMTPAuth = false;
+
+    $mail->setFrom('webmaster@example.com', 'Webmaster');
+    $mail->addAddress('i.burgos.sabelle@gmail.com');
+
+    $mail->isHTML(false);
+    $mail->Subject = 'Nouveau message du formulaire de contact';
+    $mail->Body = "Nom : " . ($_POST["name"] ?? '') . "\n" .
+                  "Email : " . ($_POST["email"] ?? '') . "\n" .
+                  "Téléphone : " . ($_POST["phone"] ?? '') . "\n" .
+                  "Message : " . ($_POST["message"] ?? '');
+
+    $mail->send();
+  } catch (Exception $e) {
+
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -280,31 +315,28 @@
     <!-- START Contact -->
 
     <section id="contact">
-      <form class="contact-container container mt-5">
+      <form class="contact-container container mt-5" action="" method="post">
         <h2>Contactez-moi</h2>
-        <div class="message-sent-email alert alert-success">
-          <p>Votre e-mail a été envoyé !</p>
-        </div>
         <div class="mb-3">
-          <input type="text" class="form-control" id="name" placeholder="Votre nom" required>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Votre nom" required>
           <div class="invalid-feedback">
             Entrez un nom de plus de 3 caractères
           </div>
         </div>
         <div class="mb-3">
-          <input type="email" class="form-control" id="email" placeholder="Votre e-mail" required>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Votre e-mail" required>
           <div class="invalid-feedback">
             Entrez un e-mail valide
           </div>
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control" id="phone" placeholder="Votre téléphone" required>
+          <input type="text" class="form-control" id="phone" name="phone" placeholder="Votre téléphone" required>
           <div class="invalid-feedback">
             Entrez un numéro de téléphone valide
           </div>
         </div>
         <div class="mb-3">
-          <textarea class="form-control" id="message" rows="5" placeholder="Votre message" required></textarea>
+          <textarea class="form-control" id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
           <div class="invalid-feedback">
             Entrez un message de 20 caractères ou plus
           </div>
