@@ -1,5 +1,21 @@
 {
+    "name": "isa-b/bfit",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Config\\": "config/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Isabelle Burgos",
+            "email": "i.burgos.sabelle@gmail.com"
+        }
+    ],
     "require": {
-        "phpmailer/phpmailer": "^6.9"
+        "phpmailer/phpmailer": "^6.9",
+        "altorouter/altorouter": "^2.0",
+        "delight-im/auth": "^8.3",
+        "vlucas/phpdotenv": "^5.6"
     }
 }
