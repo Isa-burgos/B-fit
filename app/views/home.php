@@ -35,11 +35,11 @@
             <div class="profile-presentation">
                 <p>Passionné par le coaching et le développement personnel, j’accompagne celles et ceux qui veulent se dépasser, retrouver confiance en eux et atteindre leurs objectifs. Mon approche repose sur un accompagnement personnalisé, alliant bienveillance et exigence, pour des résultats concrets et durables.
 
-    Avec plusieurs années d’expérience et une formation en fitness/musculation et haltérophilie, j’ai aidé de nombreuses personnes à transformer leur quotidien grâce à des séances adaptées à leur rythme et à leurs besoins. Que ce soit en individuel ou en groupe, chaque séance est conçue pour vous motiver et vous faire progresser étape par étape.
+                    Avec plusieurs années d’expérience et une formation en fitness/musculation et haltérophilie, j’ai aidé de nombreuses personnes à transformer leur quotidien grâce à des séances adaptées à leur rythme et à leurs besoins. Que ce soit en individuel ou en groupe, chaque séance est conçue pour vous motiver et vous faire progresser étape par étape.
 
-    Ma philosophie ? Pas de solution miracle, mais une méthode efficace, progressive et surtout adaptée à vous. Ensemble, nous mettons en place un plan d’action clair pour que vous puissiez atteindre vos objectifs et les maintenir sur le long terme.
+                    Ma philosophie ? Pas de solution miracle, mais une méthode efficace, progressive et surtout adaptée à vous. Ensemble, nous mettons en place un plan d’action clair pour que vous puissiez atteindre vos objectifs et les maintenir sur le long terme.
 
-    Prêt(e) à passer à l’action ? Contactez-moi dès aujourd’hui et faisons le premier pas vers votre transformation !
+                    Prêt(e) à passer à l’action ? Contactez-moi dès aujourd’hui et faisons le premier pas vers votre transformation !
                 </p>
             </div>
             <div class="profile-btn">
@@ -234,28 +234,28 @@
         <form class="contact-container container mt-5" action="" method="post">
             <h2>Contactez-moi</h2>
             <div class="mb-3">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Votre nom" required>
-            <div class="invalid-feedback">
-                Entrez un nom de plus de 3 caractères
-            </div>
-            </div>
-            <div class="mb-3">
-            <input type="email" class="form-control" id="email" name="email" placeholder="Votre e-mail" required>
-            <div class="invalid-feedback">
-                Entrez un e-mail valide
-            </div>
+                <input type="text" class="form-control contact-form" id="name" name="name" placeholder="Votre nom" required>
+                <div class="invalid-feedback">
+                    Entrez un nom de plus de 3 caractères
+                </div>
             </div>
             <div class="mb-3">
-            <input type="text" class="form-control" id="phone" name="phone" placeholder="Votre téléphone" required>
-            <div class="invalid-feedback">
-                Entrez un numéro de téléphone valide
-            </div>
+                <input type="email" class="form-control contact-form" id="email" name="email" placeholder="Votre e-mail" required>
+                <div class="invalid-feedback">
+                    Entrez un e-mail valide
+                </div>
             </div>
             <div class="mb-3">
-            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
-            <div class="invalid-feedback">
-                Entrez un message de 20 caractères ou plus
+                <input type="text" class="form-control contact-form" id="phone" name="phone" placeholder="Votre téléphone" required>
+                <div class="invalid-feedback">
+                    Entrez un numéro de téléphone valide
+                </div>
             </div>
+            <div class="mb-3">
+                <textarea class="form-control contact-form" id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+                <div class="invalid-feedback">
+                    Entrez un message de 20 caractères ou plus
+                </div>
             </div>
             <div class="consentement form-check d-flex align-items-start">
             <input type="checkbox" class="form-check-input me-2" required>

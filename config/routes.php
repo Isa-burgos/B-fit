@@ -3,6 +3,7 @@
 use App\controllers\AdminController;
 use Config\DbConnect;
 use App\controllers\AppController;
+use App\controllers\UserController;
 use Delight\Auth\Auth;
 
 // Création du contrôleur principal
@@ -34,91 +35,47 @@ $router->map('GET|POST', '/login', function () use ($appController) {
     render('login', 'public', compact('error'));
 });
 
-// Route Admin
+// Accueil du dashboard admin
 $router->map('GET|POST', '/admin', function(){
     $auth = authGuard('admin');
     $controller = new AdminController(getDb());
-
-    $error = null;
-    $success = null;
-
-    // Suppression user
-    if(isset($_GET['delete'])){
-        $controller->deleteUser((int) $_GET['delete']);
-        header('location: /admin?deleted=1');
-    }
-
-    // Création user
-    if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
-        $result = $controller->createUser($_POST);
-
-        $error = $result['error'] ?? null;
-        $success = $result['success'] ?? null;
-
-        header('Location: /admin?success=1');
-        exit();
-    }
-
-    if(isset($_GET['success'])){
-        $success = 'Utilisateur créé avec succès';
-    }
-
-    if(isset($_GET['delete'])){
-        $success = 'Utilisateur supprimé avec succès';
-    }
-
-    $users = $controller->getAllUsers();
-
-    render('dashboardAdmin', 'dashboard', compact('error', 'success', 'users'));
+    $controller->dashboard();
 });
 
 // Route edit user depuis admin
 $router->map('GET|POST', '/admin/user/[i:id]/edit', function($id){
     $auth = authGuard('admin');
-
     $controller = new AdminController(getDb());
-    $user = $controller->getUserById($id);
-
-    if(!$user){
-        echo "utilisateur non trouvé";
-        exit;
-    }
-
-    $error = null;
-    $success = null;
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $result = $controller->updateUser($id, $_POST, $_FILES);
-        $error = $result['error'] ?? null;
-        $success = $result['success'] ?? null;
-    }
-
-    render('editUser', 'dashboard', compact('user', 'error', 'success'));
+    $controller->editUser($id);
 });
 
 // Route user depuis admin
 $router->map('GET', '/admin/user/[i:id]', function($id){
     $auth = authGuard('admin');
-
     $controller = new AdminController(getDb());
-    $user = $controller->getUserById($id);
+    $controller->viewClientProfile($id);
+});
 
-    if(!$user){
-        echo "utilisateur non trouvé";
-        exit;
-    }
+// Liste des clients
+$router->map('GET', '/admin/clients', function(){
+    $auth = authGuard('admin');
+    $controller = new AdminController(getDb());
+    $controller->clients();
+});
 
-    $error = null;
-    $success = null;
-
-    render('clientProfile', 'dashboard', compact('user', 'error', 'success'));
+// Route programme d'entaînement
+$router->map('GET', '/admin/training', function(){
+    $auth = authGuard('admin');
+    $controller = new AdminController(getDb());
+    $controller->training();
 });
 
 
 // Route Dashboard user
 $router->map('GET', '/user', function(){
     $auth = authGuard('user');
-    render('dashboardUser', 'dashboard', [$auth->getUserId()]);
+    $controller = new UserController(getDb());
+    $controller->dashboard($auth->getUserId());
 });
 
 $router->map('GET', '/logout', function(){
@@ -133,6 +90,8 @@ $router->map('GET', '/logout', function(){
     exit();
 });
 
-$router->map('GET', '/politique-de-condidentialite', function(){
-    render('politique-confidentialite');
+// Route Politique de confidentialité
+$router->map('GET', '/politique-confidentialite', function(){
+    header('location: /politique-confidentialite');
+    exit();
 });

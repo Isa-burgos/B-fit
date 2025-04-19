@@ -2,6 +2,9 @@
 
 namespace App\controllers;
 
+use App\models\UserModel;
+use App\repositories\UserRepository;
+use Config\DbConnect;
 use Delight\Auth\Auth;
 use Delight\Auth\InvalidEmailException;
 use Delight\Auth\TooManyRequestsException;
@@ -9,129 +12,119 @@ use Delight\Auth\UserAlreadyExistsException;
 
 class AdminController extends Controller{
 
-    public function createUser(array $data): array
+    private UserRepository $repo;
+
+    public function __construct(DbConnect $db)
     {
-        $auth = new Auth($this->getDB()->getPDO());
-
-        try{
-            $filename = null;
-
-            if(!empty($_FILES['profile_picture']['tmp_name'])){
-                $extension = pathinfo($_FILES['profile_picture']['name'], PATHINFO_EXTENSION);
-                $filename = uniqid() . '.' . $extension;
-
-                move_uploaded_file(
-                    $_FILES['profile_picture']['tmp_name'],
-                    __DIR__ . '/../../public/uploads/' . $filename
-                );
-            }
-            $userId = $auth->admin()->createUser(
-                $data['email'],
-                $data['password'],
-                $data['firstname']. ' ' . $data['name'],
-            );
-            
-            $stmt =$this->getDB()->getPDO()->prepare(
-                'UPDATE users SET
-                    role = "user",
-                    firstname = :firstname,
-                    name = :name,
-                    phone = :phone,
-                    address = :address,
-                    profile_picture = :profile_picture,
-                    created_at = NOW()
-                WHERE id = :id
-            ');
-
-            $stmt->execute([
-                'firstname' => $data['firstname'],
-                'name' => $data['name'],
-                'phone' => $data['phone'],
-                'address' => $data['address'],
-                'profile_picture' => $filename,
-                'id' => $userId
-            ]);
-
-            return ['success' => 'Utilisateur créé avec succès'];
-
-        } catch (InvalidEmailException){
-            return ['error' => 'E-mail invalide'];
-        } catch (UserAlreadyExistsException){
-            return ['error' => 'Cet utilisateur existe déjà'];
-        } catch (TooManyRequestsException){
-            return ['error' => 'Trop de tentatives, réessayez plus tard'];
-        }
+        parent::__construct($db);
+        $this->repo = new UserRepository($db);
     }
+
+    public function dashboard(): void
+    {
+        $users = $this->getAllUsers();
+
+        $this->render('dashboardAdmin', 'dashboard', compact('users'));
+    }
+
+    public function clients(): void
+    {
+        $error = null;
+        $success = null;
+
+        // Suppression user
+        $userRepo = new UserRepository($this->getDB());
+
+        if(isset($_GET['delete'])){
+            $userRepo->deleteUser((int) $_GET['delete']);
+            header('location: /admin?deleted=1');
+            exit();
+        }
+
+        // Création user
+        if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
+            $result = $userRepo->createUser($_POST);
+            $error = $result['error'] ?? null;
+            $success = $result['success'] ?? null;
+
+            header('Location: /admin?success=1');
+            exit();
+        }
+
+        if(isset($_GET['success'])){
+            $success = 'Utilisateur créé avec succès';
+        }
+    
+        if(isset($_GET['delete'])){
+            $success = 'Utilisateur supprimé avec succès';
+        }
+
+        $users = $this->getAllUsers();
+
+        $this->render('admin/clients', 'dashboard', compact('users', 'error', 'success'));
+    }
+
+    public function training()
+        {
+            $this->render('admin/training', 'dashboard');
+        }
 
     public function getAllUsers(): array
     {
-        $stmt = $this->getDB()->getPDO()->query("
-            SELECT id, firstname, name, email, profile_picture
-            FROM users
-            WHERE role = 'user' AND status = 'active'
-            ORDER BY created_at DESC");
-        return $stmt->fetchAll();
+        return $this->repo->findAll('user', 'active');
     }
 
-    public function getUserById(int $id): ?array
+    public function getUserById(int $id): ?UserModel
     {
-        $stmt = $this->getDB()->getPDO()->prepare("
-            SELECT id, firstname, name, address, email, phone, profile_picture, created_at
-            FROM users
-            WHERE id = :id
-        ");
-
-        $stmt->execute(['id' => $id]);
-        return $stmt->fetch() ?: null;
+        return $this->repo->find($id);
     }
 
-    public function updateUser(int $id, array $data, array $files): array
+    public function viewClientProfile(int $id)
     {
-        $pdo = $this->getDB()->getPDO();
+        $user = $this->getUserById($id);
 
-        try{
-            $filename = $data['current_picture'] ?? null;
-
-            if(!empty($files['profile_picture']['tmp_name'])){
-                $ext = pathinfo($files['profile_picture']['name'], PATHINFO_EXTENSION);
-                $filename = uniqid() . '.' . $ext;
-
-                move_uploaded_file(
-                    $files['profile_picture']['tmp_name'],
-                    __DIR__ . '/../../public/uploads/' . $filename
-                );
-            }
-
-            $stmt = $pdo->prepare(
-                "UPDATE users SET
-                    firstname = :firstname,
-                    name = :name,
-                    address = :address,
-                    email = :email,
-                    phone = :phone,
-                    profile_picture = :profile_picture
-                WHERE id = :id
-            ");
-
-            $stmt->execute([
-                'firstname' => $data['firstname'],
-                'name' => $data['name'],
-                'address' => $data['address'],
-                'email' => $data['email'],
-                'phone' => $data['phone'],
-                'profile_picture' => $filename,
-                'id' => $id
-            ]);
-
-            return ['success' => 'Profil mis à jour avec succès'];
-        } catch (\Exception $e){
-            return ['error' => 'Erreur : ' . $e->getMessage()];
+        if(!$user){
+            echo "utilisateur non trouvé";
+            exit;
         }
+    
+        $error = null;
+        $success = null;
+    
+        render('clientProfile', 'dashboard', compact('user', 'error', 'success'));
     }
 
-    public function deleteUser(int $id) : void
+    public function editUser(int $id)
     {
-        $stmt =$this->getDB()->getPDO()->prepare("DELETE FROM users WHERE id = :id AND role = 'user'");
-        $stmt->execute(['id' => $id]);
+        $user = $this->getUserById($id);
+
+        if(!$user){
+            echo "utilisateur non trouvé";
+            exit;
+        }
+    
+        $error = null;
+        $success = null;
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $result = $this->updateUser($id, $_POST, $_FILES);
+            $error = $result['error'] ?? null;
+            $success = $result['success'] ?? null;
+        }
+    
+        render('editUser', 'dashboard', compact('user', 'error', 'success'));
     }
+
+    public function updateUser($id, $data, $files): array
+    {
+        return $this->repo->updateUser($id, $data, $files);
+    }
+
+    public function getRepo(): UserRepository
+{
+    return $this->repo;
+}
+
+
+    
 }

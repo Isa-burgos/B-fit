@@ -5,7 +5,7 @@
             <div class="col-sm-12 col-md-5">
             <h3 class="footer-title">Informations</h3>
             <ul class="footer-nav">
-                <li class="footer-links"><a class="link" href="/politique-confidentialite.php" target="_blank">Politique de confidentialité</a></li>
+                <li class="footer-links"><a class="link" href="/politique-confidentialite" target="_blank">Politique de confidentialité</a></li>
                 <li class="footer-links"><a class="link" href="/mentions-legales.php" target="_blank">Mentions légales</a></li>
             </ul>
             </div>

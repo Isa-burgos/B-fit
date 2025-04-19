@@ -1,0 +1,19 @@
+$theme-colors: (
+    "primary": #016678,
+    "secondary": #E6DAC6,
+    "success": #558776,
+    "dark": #0F1312,
+    "info": #0dcaf0,
+    "warning": #ffc107,
+    "danger": #BC2E0A,
+    "light": #F5F5F5,
+);
+
+$h1-font-size: 3.125rem;
+$h2-font-size: 2rem;
+$h3-font-size: 1.5rem;
+
+$carousel-control-color: map-get($theme-colors, "primary");
+
+$input-bg: map-get($theme-colors, "light");
+$input-placeholder-color: map-get($theme-colors, "primary");

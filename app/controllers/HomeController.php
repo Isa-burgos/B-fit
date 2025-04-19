@@ -20,12 +20,12 @@ class HomeController{
         
             $mail->isHTML(false);
             $mail->Subject = 'Nouveau message du formulaire de contact';
-            $mail->Body = "Nom : " . ($_POST["name"] ?? '') . "\n" .
-                            "Email : " . ($_POST["email"] ?? '') . "\n" .
-                            "Téléphone : " . ($_POST["phone"] ?? '') . "\n" .
-                            "Message : " . ($_POST["message"] ?? '');
+            $mail->Body = "Nom : " . htmlspecialchars($_POST["name"] ?? '') . "\n" .
+                            "Email : " . htmlspecialchars($_POST["email"] ?? '') . "\n" .
+                            "Téléphone : " . htmlspecialchars($_POST["phone"] ?? '') . "\n" .
+                            "Message : " . htmlspecialchars($_POST["message"] ?? '');
         
-                $mail->send();
+            $mail->send();
 
         } catch(Exception $e) {
             echo 'Erreur lors de l’envoi du message : ' .$e->getMessage();

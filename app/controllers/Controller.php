@@ -18,5 +18,15 @@ abstract class Controller{
         return $this->db;
     }
 
+    protected function render(string $view, string $layout = 'public', array $params = []): void
+    {
+        extract($params);
+
+        ob_start();
+        require_once dirname(__DIR__) . '/../app/views/' . $view . '.php';
+        $content = ob_get_clean();
+        extract(['content' => $content]);
+        require_once dirname(__DIR__) . '/../app/views/layouts/' . $layout . '.php';
+    }
 
 }

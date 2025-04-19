@@ -5,4 +5,5 @@ if (isset($content)) {
     echo $content;
 }
 
+
 require __DIR__ . '/../partials/footer.php';
